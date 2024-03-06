@@ -34,6 +34,7 @@
     <Compile Include="Concrete\Product.cs" />
     <Compile Include="Concrete\Category.cs" />
     <Compile Include="Abstract\IEntity.cs" />
+    <Compile Include="Concrete\Customer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstract\" />

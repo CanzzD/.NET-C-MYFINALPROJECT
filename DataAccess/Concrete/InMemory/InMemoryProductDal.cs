@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using DataAccess.Abstract;
 using Entities.Concrete;
 
@@ -8,11 +9,12 @@ namespace DataAccess.Concrete.InMemory
 {
     public class InMemoryProductDal : IProductDal
     {
-
         List<Product> _products;
-
+      
         public InMemoryProductDal()
         {
+
+            //Oracle, Sql Server, Postgres, MongoDb
             _products = new List<Product> {
                 new Product{ProductId=1, CategoryId=1, ProductName="Bardak", UnitPrice=15, UnitsInStock=15},
                 new Product{ProductId=2, CategoryId=1, ProductName="Tabak", UnitPrice=500, UnitsInStock=3},
@@ -20,7 +22,16 @@ namespace DataAccess.Concrete.InMemory
                 new Product{ProductId=4, CategoryId=2, ProductName="Fare", UnitPrice=150, UnitsInStock=65},
                 new Product{ProductId=5, CategoryId=2, ProductName="Klavye", UnitPrice=85, UnitsInStock=11}
             };
+
+            FindTest(_products);
         }
+
+        private void FindTest(List<Product> products)
+        {
+            var result = _products.Find(p => p.ProductId == 2);
+            Console.WriteLine(result.ProductName);
+        }
+
         public void Add(Product product)
         {
             _products.Add(product);
@@ -64,5 +75,15 @@ namespace DataAccess.Concrete.InMemory
             productToUpdate.UnitPrice = product.UnitPrice;
             productToUpdate.UnitsInStock = product.UnitsInStock;
         }
+
+        public List<Product> GetAll(Expression<Func<Product, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Product Get(Expression<Func<Product, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
     }
-}
+} 

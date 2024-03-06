@@ -33,6 +33,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Abstract\IProductDal.cs" />
     <Compile Include="Concrete\InMemory\InMemoryProductDal.cs" />
+    <Compile Include="Abstract\ICategoryDal.cs" />
+    <Compile Include="Abstract\IEntityRepository.cs" />
+    <Compile Include="Abstract\ICustomerDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfCategoryDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfProductDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfCustomerDal.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstract\" />
